@@ -1,39 +1,133 @@
 <html>
+
 <head>
   <title>My First JavaScript Page</title>
-  <script>
-  // Function defined in head - can be called later
-  function updateDemo1() {
-    document.querySelector("#scriptDemo1").innerHTML = "Updated by button click!";
-  }
-  </script>
+
+  <style>
+    .correct {
+      color: green;
+      font-weight: bold;
+    }
+
+    .incorrect {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
 </head>
+
 <body>
-  <h1>JavaScript Script Tag Example</h1>
-  <div id="scriptDemo1">DEMO 1</div>
-  <div id="scriptDemo2">DEMO 2</div>
-  <div id="scriptDemo3">DEMO 3</div>
+
+  <h1>Maths Game</h1>
+  <p>
+    <span id="question1"></span>
+    <span id="answer1"></span>
+    <span id="feedback1"></span>
+  </p>
+
+  <p>
+    <span id="question2"></span>
+    <span id="answer2"></span>
+    <span id="feedback2"></span>
+  </p>
+
+  <p>
+    <span id="question3"></span>
+    <span id="answer3"></span>
+    <span id="feedback3"></span>
+  </p>
+  <p>
+    <span id="question4"></span>
+    <span id="answer4"></span>
+    <span id="feedback4"></span>
+  </p>
+  <p>
+    <span id="question5"></span>
+    <span id="answer5"></span>
+    <span id="feedback5"></span>
+  </p>
+  <p>
+    <span id="question6"></span>
+    <span id="answer6"></span>
+    <span id="feedback6"></span>
+  </p>
+  <p>
+    <span id="question7"></span>
+    <span id="answer7"></span>
+    <span id="feedback7"></span>
+  </p>
+
+  <p>
+    <span id="question8"></span>
+    <span id="answer8"></span>
+    <span id="feedback8"></span>
+  </p>
+
+  <p>
+    <span id="question9"></span>
+    <span id="answer9"></span>
+    <span id="feedback9"></span>
+  </p>
+
+  <p>
+    <span id="question10"></span>
+    <span id="answer10"></span>
+    <span id="feedback10"></span>
+  </p>
+
+  <p>Your Score: <span id="score"></span></p>
+
+
 
   <script>
-    // This runs immediately as the page loads
-    document.querySelector("#scriptDemo2").innerHTML = "Updated by script on page load";
-    document.querySelector("#scriptDemo3").innerHTML = "Updated by script on page load";
+    let operators = ["+", "-", "*", "/"];
+    let score = 0;
+    let questions = [];
+    let answers = [];
+
+    for (let i = 0; i < 10; i++) {
+      let num1 = Math.floor(Math.random() * 10) + 1;
+      let num2 = Math.floor(Math.random() * 10) + 1;
+      let randomOperator = operators[Math.floor(Math.random() * 4)];
+      questions.push("What is " + num1 + " " + randomOperator + " " + num2 + "?");
+      answers.push(eval(num1 + " " + randomOperator + " " + num2));
+    }
+
+    for (let i = 0; i < 10; i++) {
+      let userAnswer = Number(prompt(questions[i]));
+      let correctAnswer = answers[i];
+      document.querySelector(`#question${i + 1}`).textContent = questions[i];
+      document.querySelector(`#answer${i + 1}`).textContent = userAnswer;
+
+
+      if (userAnswer === correctAnswer) {
+        document.querySelector(`#feedback${i + 1}`).textContent = "✅ Correct"; 
+        document.querySelector(`#feedback${i + 1}`).classList.add("correct");
+        score = score + 1
+      } else {
+        document.querySelector(`#feedback${i + 1}`).textContent = "❌ Incorrect, the correct answer is: " + correctAnswer;
+        document.querySelector(`#feedback${i + 1}`).classList.add("incorrect");
+      }
+      document.querySelector("#score").textContent = score;
+
+    }
+
+    if (score >= 8) {
+      document.body.style.backgroundColor = "green";
+
+    } else if (score >= 4) {
+      document.body.style.backgroundColor = "yellow";
+
+    } else {
+      document.body.style.backgroundColor = "red";
+
+    }
   </script>
-
-  <button onclick="updateDemo1()">Call Script Function</button>
-
-
-
-
-
 
   <footer>
-  Developed by Istiaq Abdullah, <code>w2063860</code>, March 2026
-</footer>
+    Developed by Istiaq Abdullah, <code>w2063860</code>, March 2026
+  </footer>
+
 </body>
+
 </html>
-
-
-
-
-
