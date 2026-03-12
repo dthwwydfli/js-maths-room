@@ -1,0 +1,39 @@
+<html>
+<head>
+  <title>My First JavaScript Page</title>
+  <script>
+  // Function defined in head - can be called later
+  function updateDemo1() {
+    document.querySelector("#scriptDemo1").innerHTML = "Updated by button click!";
+  }
+  </script>
+</head>
+<body>
+  <h1>JavaScript Script Tag Example</h1>
+  <div id="scriptDemo1">DEMO 1</div>
+  <div id="scriptDemo2">DEMO 2</div>
+  <div id="scriptDemo3">DEMO 3</div>
+
+  <script>
+    // This runs immediately as the page loads
+    document.querySelector("#scriptDemo2").innerHTML = "Updated by script on page load";
+    document.querySelector("#scriptDemo3").innerHTML = "Updated by script on page load";
+  </script>
+
+  <button onclick="updateDemo1()">Call Script Function</button>
+
+
+
+
+
+
+  <footer>
+  Developed by Istiaq Abdullah, <code>w2063860</code>, March 2026
+</footer>
+</body>
+</html>
+
+
+
+
+
